@@ -1,0 +1,19 @@
+def timeConversion(s):
+    period = s[-2:]
+    hours_str = s[:2]
+    minutes_seconds = s[2:-2]
+
+    hours_int = int(hours_str)
+
+    if period == 'PM' and hours_int != 12:
+        hours_int += 12
+    elif period == 'AM' and hours_int == 12:
+        hours_int = 0
+
+    return f"{hours_int:02d}{minutes_seconds}"
+
+# This part is crucial for getting output:
+if __name__ == '__main__':
+    s = input() # Read the input from stdin (e.g., '07:05:45PM')
+    result = timeConversion(s)
+    print(result) # Print the result to stdout
